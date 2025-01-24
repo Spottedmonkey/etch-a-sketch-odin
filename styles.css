@@ -1,0 +1,66 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    font-family: 'anton', sans-serif;
+}
+
+#game-container {
+    display: flex;
+    border: 2px solid red;
+    height: 99vh;
+}
+
+#gameplay-container {
+    align-content: center;
+    justify-content: center;
+    flex: 1;
+    border: 2px solid greenyellow;
+}
+
+#drawing-container {
+    display: flex;
+    border: 2px solid lightgrey;
+    height: 620px;
+    width: 620px;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+    margin: auto;
+}
+
+#control-container {
+    display: flex;
+    width: 200px;
+    border: 2px solid blue;
+}
+
+#grid-size-toggle {
+    display: flex;
+    margin: 50px auto 0 auto;
+}
+
+#grid-size-input {
+    height: 100px;
+    width: 100px;
+    border-radius: 6px;
+    text-align: center;
+    font-size: 70px;
+}
+
+#grid-size-input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
+
+#grid-size-butttons {
+    display: flex;
+    flex-direction: column;
+}
+
+#grid-size-buttons button{
+    display: flex;
+    height: 50px;
+    width: 50px;
+    border-radius: 100%;
+}
