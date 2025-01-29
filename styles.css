@@ -1,20 +1,24 @@
-@import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
 
 * {
     padding: 0;
     margin: 0;
-    font-family: 'anton', sans-serif;
+    font-family: 'avenir next', sans-serif;
+}
+
+body {
+    background-color: #ebebe6;
 }
 
 #game-screen {
     display: flex;
+    flex-direction: column;
 }
 
 #game-container {
     display: flex;
-    border: 2px solid red;
     height: 100vh;
     flex: 1;
+    order: 1;
 }
 
 #drawing-container {
@@ -26,19 +30,26 @@
     justify-content: flex-start;
     align-items: flex-start;
     margin: auto;
+    flex: none;
 }
 
 #game-controls {
     display: flex;
-    width: 150px;
-    border: 2px solid blue;
+    width: 100vw;
 }
 
 #grid-update {
     height: 50px;
-    width: 90px;
-    margin: 30px auto 0px auto;
+    width: 187px;
+    margin: 30px auto;
     font-size: 30px;
-    /* border: none; */
+    border: none;
     cursor: pointer;
+    font-weight: 500;
+    background-color: #ebebe6;
+    box-shadow: -3px -3px 4px #f8faf7,
+                 3px  3px 4px #d8d9d7;
+    border-radius: 10px;
+    color: #9e9f9d;
+    background: linear-gradient(130deg, #d8d9d7, #f8faf7);
 }
