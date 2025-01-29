@@ -6,17 +6,15 @@
     font-family: 'anton', sans-serif;
 }
 
+#game-screen {
+    display: flex;
+}
+
 #game-container {
     display: flex;
     border: 2px solid red;
-    height: 99vh;
-}
-
-#gameplay-container {
-    align-content: center;
-    justify-content: center;
+    height: 100vh;
     flex: 1;
-    border: 2px solid greenyellow;
 }
 
 #drawing-container {
@@ -30,37 +28,17 @@
     margin: auto;
 }
 
-#control-container {
+#game-controls {
     display: flex;
-    width: 200px;
+    width: 150px;
     border: 2px solid blue;
 }
 
-#grid-size-toggle {
-    display: flex;
-    margin: 50px auto 0 auto;
-}
-
-#grid-size-input {
-    height: 100px;
-    width: 100px;
-    border-radius: 6px;
-    text-align: center;
-    font-size: 70px;
-}
-
-#grid-size-input::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-}
-
-#grid-size-butttons {
-    display: flex;
-    flex-direction: column;
-}
-
-#grid-size-buttons button{
-    display: flex;
+#grid-update {
     height: 50px;
-    width: 50px;
-    border-radius: 100%;
+    width: 90px;
+    margin: 30px auto 0px auto;
+    font-size: 30px;
+    /* border: none; */
+    cursor: pointer;
 }
