@@ -7,12 +7,15 @@ const greenSelect = document.querySelector('#green-select');
 const blackSelect = document.querySelector('#black-select');
 const discoSelect = document.querySelector('#disco-select');
 const brushReset = document.querySelector('#brush-reset');
+const eraserSelect = document.querySelector('#eraser-select');
+const displayDefaultColor = document.querySelector('#display-default-color')
 
 let redClicked = false;
 let blueClicked = false;
 let greenClicked = false;
 let blackClicked = false;
 let discoClicked = false;
+let eraserClicked = false;
 
 let gridSize = '';
 let totalGridFill = '';
@@ -26,7 +29,7 @@ redSelect.addEventListener('click', () => {
     greenClicked = false;
     blackClicked = false;
     discoClicked = false;
-    console.log(redClicked);
+    eraserClicked = false;
 });
 
 blueSelect.addEventListener('click', () => {
@@ -35,7 +38,7 @@ blueSelect.addEventListener('click', () => {
     greenClicked = false;
     blackClicked = false;
     discoClicked = false;
-    console.log(blueClicked);
+    eraserClicked = false;
 });
 
 greenSelect.addEventListener('click', () => {
@@ -44,7 +47,7 @@ greenSelect.addEventListener('click', () => {
     redClicked = false;
     blackClicked = false;
     discoClicked = false;
-    console.log(greenClicked)
+    eraserClicked = false;
 });
 
 blackSelect.addEventListener ('click', () => {
@@ -53,7 +56,7 @@ blackSelect.addEventListener ('click', () => {
     blueClicked = false;
     redClicked = false;
     discoClicked = false;
-    console.log(blackClicked)
+    eraserClicked = false;
 });
 
 discoSelect.addEventListener ('click', () => {
@@ -62,6 +65,7 @@ discoSelect.addEventListener ('click', () => {
     blueClicked = false;
     redClicked = false;
     blackClicked = false;
+    eraserClicked = false;
 });
 
 brushReset.addEventListener ('click', () => {
@@ -70,12 +74,23 @@ brushReset.addEventListener ('click', () => {
     blueClicked = false;
     redClicked = false;
     blackClicked = false;
+    eraserClicked = false;
 });
+
+eraserSelect.addEventListener ('click', () => {
+    eraserClicked = true;
+    discoClicked = false;
+    greenClicked = false;
+    blueClicked = false;
+    redClicked = false;
+    blackClicked = false;
+})
 
 function addGridContent(gridSize, colorSelect) {
     totalGridFill = gridSize * gridSize;
     gridArea = 620/gridSize;
     colorSelect = setRGBValue();
+    displayDefaultColor.style.backgroundColor = `${colorSelect}`;
 
     for (let i = 0; i < totalGridFill; i++) {
         drawingGrid = document.createElement('div');
@@ -103,6 +118,9 @@ function addGridContent(gridSize, colorSelect) {
             } else if (discoClicked === true) {
                 item.style.backgroundColor = `${setRGBValue()}`;
                 item.style.border = `.1px solid ${setRGBValue()}`;
+            } else if (eraserClicked === true) {
+                item.style.background = 'none';
+                item.style.border = '.1px solid lightgrey';
             } else {
                 item.style.backgroundColor = `${colorSelect}`;
                 item.style.border =`.1px solid ${colorSelect}`;
