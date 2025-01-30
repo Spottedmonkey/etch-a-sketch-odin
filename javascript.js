@@ -5,11 +5,14 @@ const redSelect = document.querySelector('#red-select');
 const blueSelect = document.querySelector('#blue-select');
 const greenSelect = document.querySelector('#green-select');
 const blackSelect = document.querySelector('#black-select');
+const discoSelect = document.querySelector('#disco-select');
+const brushReset = document.querySelector('#brush-reset');
 
 let redClicked = false;
 let blueClicked = false;
 let greenClicked = false;
 let blackClicked = false;
+let discoClicked = false;
 
 let gridSize = '';
 let totalGridFill = '';
@@ -22,32 +25,52 @@ redSelect.addEventListener('click', () => {
     blueClicked = false;
     greenClicked = false;
     blackClicked = false;
+    discoClicked = false;
     console.log(redClicked);
-})
+});
 
 blueSelect.addEventListener('click', () => {
     blueClicked = true;
     redClicked = false;
     greenClicked = false;
     blackClicked = false;
+    discoClicked = false;
     console.log(blueClicked);
-})
+});
 
 greenSelect.addEventListener('click', () => {
     greenClicked = true;
     blueClicked = false;
     redClicked = false;
     blackClicked = false;
+    discoClicked = false;
     console.log(greenClicked)
-})
+});
 
 blackSelect.addEventListener ('click', () => {
     blackClicked = true;
     greenClicked = false;
     blueClicked = false;
     redClicked = false;
+    discoClicked = false;
     console.log(blackClicked)
-})
+});
+
+discoSelect.addEventListener ('click', () => {
+    discoClicked = true;
+    greenClicked = false;
+    blueClicked = false;
+    redClicked = false;
+    blackClicked = false;
+});
+
+brushReset.addEventListener ('click', () => {
+    discoClicked = false;
+    greenClicked = false;
+    blueClicked = false;
+    redClicked = false;
+    blackClicked = false;
+});
 
 function addGridContent(gridSize, colorSelect) {
     totalGridFill = gridSize * gridSize;
@@ -56,7 +79,7 @@ function addGridContent(gridSize, colorSelect) {
 
     for (let i = 0; i < totalGridFill; i++) {
         drawingGrid = document.createElement('div');
-        drawingGrid.setAttribute('style', `box-sizing: border-box; border: .1px solid ${colorSelect}; height: ${gridArea}px; width: ${gridArea}px;`);
+        drawingGrid.setAttribute('style', `box-sizing: border-box; border: .1px solid lightgrey; height: ${gridArea}px; width: ${gridArea}px;`);
         drawingGrid.setAttribute('class', 'drawing-pixel');
         drawingContainer.appendChild(drawingGrid);
     }
@@ -65,7 +88,6 @@ function addGridContent(gridSize, colorSelect) {
 
     drawingPixel.forEach((item) => {
         item.addEventListener('mouseover', () => {
-            item.style.backgroundColor = `${colorSelect}`;
             if (redClicked === true) {
                 item.style.backgroundColor = 'red';
                 item.style.border = '.1px solid red';
@@ -78,6 +100,12 @@ function addGridContent(gridSize, colorSelect) {
             } else if (blackClicked === true) {
                 item.style.backgroundColor = 'black';
                 item.style.border = '.1px solid black';
+            } else if (discoClicked === true) {
+                item.style.backgroundColor = `${setRGBValue()}`;
+                item.style.border = `.1px solid ${setRGBValue()}`;
+            } else {
+                item.style.backgroundColor = `${colorSelect}`;
+                item.style.border =`.1px solid ${colorSelect}`;
             };
         });
     });
