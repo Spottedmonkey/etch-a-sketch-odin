@@ -1,12 +1,53 @@
 const drawingContainer = document.querySelector('#drawing-container');
 const gridUpdate = document.querySelector('#grid-update');
 const singularDrawingPixel = document.querySelector('.drawing-pixel');
+const redSelect = document.querySelector('#red-select');
+const blueSelect = document.querySelector('#blue-select');
+const greenSelect = document.querySelector('#green-select');
+const blackSelect = document.querySelector('#black-select');
+
+let redClicked = false;
+let blueClicked = false;
+let greenClicked = false;
+let blackClicked = false;
 
 let gridSize = '';
 let totalGridFill = '';
 let gridArea = '';
 
 addGridContent(16);
+
+redSelect.addEventListener('click', () => {
+    redClicked = true;
+    blueClicked = false;
+    greenClicked = false;
+    blackClicked = false;
+    console.log(redClicked);
+})
+
+blueSelect.addEventListener('click', () => {
+    blueClicked = true;
+    redClicked = false;
+    greenClicked = false;
+    blackClicked = false;
+    console.log(blueClicked);
+})
+
+greenSelect.addEventListener('click', () => {
+    greenClicked = true;
+    blueClicked = false;
+    redClicked = false;
+    blackClicked = false;
+    console.log(greenClicked)
+})
+
+blackSelect.addEventListener ('click', () => {
+    blackClicked = true;
+    greenClicked = false;
+    blueClicked = false;
+    redClicked = false;
+    console.log(blackClicked)
+})
 
 function addGridContent(gridSize, colorSelect) {
     totalGridFill = gridSize * gridSize;
@@ -25,6 +66,19 @@ function addGridContent(gridSize, colorSelect) {
     drawingPixel.forEach((item) => {
         item.addEventListener('mouseover', () => {
             item.style.backgroundColor = `${colorSelect}`;
+            if (redClicked === true) {
+                item.style.backgroundColor = 'red';
+                item.style.border = '.1px solid red';
+            } else if (blueClicked === true) {
+                item.style.backgroundColor = 'blue';
+                item.style.border = '.1px solid blue';
+            } else if (greenClicked === true) {
+                item.style.backgroundColor = 'forestgreen';
+                item.style.border = '.1px solid forestgreen';
+            } else if (blackClicked === true) {
+                item.style.backgroundColor = 'black';
+                item.style.border = '.1px solid black';
+            };
         });
     });
 }
@@ -61,5 +115,7 @@ function setRGBValue(red, green, blue) {
 
     return RGBValue;
 }
+
+console.log(redClicked)
 
 console.log(setRGBValue())
