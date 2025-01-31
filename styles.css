@@ -12,12 +12,12 @@ body {
 #game-screen {
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 #game-container {
     display: flex;
-    height: 100vh;
-    flex: 1;
     order: 1;
 }
 
@@ -35,21 +35,146 @@ body {
 
 #game-controls {
     display: flex;
-    width: 100vw;
+    width: 620px;
+    height: 150px;
+    gap: 20px;
+    align-items: center;
+    justify-content: center;
 }
 
 #grid-update {
-    height: 50px;
-    width: 187px;
-    margin: 30px auto;
-    font-size: 30px;
+    height: 82px;
+    width: 130px;
+    font-size: 25px;
     border: none;
     cursor: pointer;
     font-weight: 500;
     background-color: #ebebe6;
     box-shadow: -3px -3px 4px #f8faf7,
-                 3px  3px 4px #d8d9d7;
-    border-radius: 10px;
+                 3px  3px 5px #b3b4b2;
+    border-radius: 25px;
     color: #9e9f9d;
-    background: linear-gradient(130deg, #d8d9d7, #f8faf7);
+}
+
+#color-palette {
+    display: flex;
+    flex-direction: column;
+    border-radius: 25px;
+    justify-content: space-between;
+    align-items: center;
+    height: 82px;
+    margin: auto 0;
+    box-shadow: -3px -3px 4px #f8faf7,
+                 3px  3px 5px #b3b4b2;
+}
+
+#color-palette h3{
+    font-weight: 500;
+    color: #9e9f9d;
+    margin-top: 5px;
+}
+
+#color-selection {
+    display: flex;
+    gap: 5px;
+    margin: 0 5px 5px 5px;
+}
+
+#color-palette .colors {
+    display: flex;
+    height: 44px;
+    width: 44px;
+    border-radius: 100%;
+    margin: auto 0px;
+    cursor: pointer;
+    border: none;
+    box-shadow: -3px -3px 4px #f8faf7 inset,
+                3px 3px 5px #b3b4b2 inset;
+
+}
+
+#display-red,
+#display-blue,
+#display-green,
+#display-black,
+#display-default-color {
+    height: 27px;
+    width: 27px;
+    border-radius: 100%;
+    margin: auto;
+    box-shadow: -3px -3px 4px #f8faf7,
+                3px 3px 5px #b3b4b2;
+}
+
+#display-red {
+    background-color: red;
+}
+
+#color-selection button div:hover {
+    transform: scale(1.5);
+    box-shadow: none;
+}
+
+#display-blue {
+    background-color: blue;
+}
+
+#display-green{
+    background-color: forestgreen;
+}
+
+#display-black {
+    background-color: black;
+}
+
+#drawing-mode {
+    display: flex;
+    margin: auto 0px;
+    border-radius: 25px;
+    height: 82px;
+    width: 130px;
+    justify-content: center;
+    gap: 5px;
+    box-shadow: -3px -3px 4px #f8faf7,
+                 3px  3px 5px #b3b4b2;
+}
+
+#disco-select,
+#eraser-select {
+    display: flex;
+    justify-content: center;
+    height: 60px;
+    width: 50px;
+    border: none;
+    background: none;
+    cursor: pointer;
+
+}
+
+#disco-select img,
+#eraser-select img {
+    height: 60px;
+    width: 60px;
+}
+
+#disco-select img:hover,
+#eraser-select img:hover {
+    transform-origin: top;
+    transform: scale(1.1);
+}
+
+#disco-select img {
+    border-radius: 16px 0 0 0;
+}
+
+#disco-select img:hover {
+    border-radius: 17px 0 0 0;
+}
+
+#eraser-select img {
+    border-radius: 0 16px 0 0;
+}
+
+#eraser-select img:hover {
+    border-radius: 0 17px 0 0;
 }
