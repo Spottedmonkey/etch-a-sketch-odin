@@ -23,7 +23,6 @@ body {
 
 #drawing-container {
     display: flex;
-    border: 2px solid lightgrey;
     height: 620px;
     width: 620px;
     flex-wrap: wrap;
@@ -31,6 +30,8 @@ body {
     align-items: flex-start;
     margin: auto;
     flex: none;
+    box-shadow: -3px -3px 4px #f8faf7,
+                 3px  3px 5px #b3b4b2;
 }
 
 #game-controls {
