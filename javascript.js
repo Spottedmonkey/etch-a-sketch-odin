@@ -11,12 +11,7 @@ const eraserSelect = document.querySelector('#eraser-select');
 const displayDefaultColor = document.querySelector('#display-default-color');
 
 
-let redClicked = false;
-let blueClicked = false;
-let greenClicked = false;
-let blackClicked = false;
-let discoClicked = false;
-let eraserClicked = false;
+let brushModeSelected = ''
 
 let gridSize = '';
 let totalGridFill = '';
@@ -25,66 +20,31 @@ let gridArea = '';
 addGridContent(16);
 
 redSelect.addEventListener('click', () => {
-    redClicked = true;
-    blueClicked = false;
-    greenClicked = false;
-    blackClicked = false;
-    discoClicked = false;
-    eraserClicked = false;
+    brushModeSelected = 'red';
 });
 
 blueSelect.addEventListener('click', () => {
-    blueClicked = true;
-    redClicked = false;
-    greenClicked = false;
-    blackClicked = false;
-    discoClicked = false;
-    eraserClicked = false;
+    brushModeSelected = 'blue';
 });
 
 greenSelect.addEventListener('click', () => {
-    greenClicked = true;
-    blueClicked = false;
-    redClicked = false;
-    blackClicked = false;
-    discoClicked = false;
-    eraserClicked = false;
+    brushModeSelected = 'green';
 });
 
 blackSelect.addEventListener ('click', () => {
-    blackClicked = true;
-    greenClicked = false;
-    blueClicked = false;
-    redClicked = false;
-    discoClicked = false;
-    eraserClicked = false;
+    brushModeSelected = 'black';
 });
 
 discoSelect.addEventListener ('click', () => {
-    discoClicked = true;
-    greenClicked = false;
-    blueClicked = false;
-    redClicked = false;
-    blackClicked = false;
-    eraserClicked = false;
+    brushModeSelected = 'disco';
 });
 
 brushReset.addEventListener ('click', () => {
-    discoClicked = false;
-    greenClicked = false;
-    blueClicked = false;
-    redClicked = false;
-    blackClicked = false;
-    eraserClicked = false;
+    brushModeSelected = 'reset';
 });
 
 eraserSelect.addEventListener ('click', () => {
-    eraserClicked = true;
-    discoClicked = false;
-    greenClicked = false;
-    blueClicked = false;
-    redClicked = false;
-    blackClicked = false;
+    brushModeSelected = 'erase';
 });
 
 function addGridContent(gridSize, colorSelect) {
@@ -105,7 +65,7 @@ function addGridContent(gridSize, colorSelect) {
     drawingPixel.forEach((item) => {
         item.addEventListener('mouseover', () => {
             let currentOpacity = Number(item.style.opacity);
-            if (redClicked === true) {
+            if (brushModeSelected === 'red') {
                 item.style.backgroundColor = 'red';
                 item.style.border = '.1px solid red';
                     if (currentOpacity) {
@@ -113,7 +73,7 @@ function addGridContent(gridSize, colorSelect) {
                     } else {
                         item.style.opacity = 0.1;
                     };
-            } else if (blueClicked === true) {
+            } else if (brushModeSelected === 'blue') {
                 item.style.backgroundColor = 'blue';
                 item.style.border = '.1px solid blue';
                     if (currentOpacity) {
@@ -121,7 +81,7 @@ function addGridContent(gridSize, colorSelect) {
                     } else {
                         item.style.opacity = 0.1;
                     };
-            } else if (greenClicked === true) {
+            } else if (brushModeSelected === 'green') {
                 item.style.backgroundColor = 'forestgreen';
                 item.style.border = '.1px solid forestgreen';
                     if (currentOpacity) {
@@ -129,7 +89,7 @@ function addGridContent(gridSize, colorSelect) {
                     } else {
                         item.style.opacity = 0.1;
                     };
-            } else if (blackClicked === true) {
+            } else if (brushModeSelected === 'black') {
                 item.style.backgroundColor = 'black';
                 item.style.border = '.1px solid black';
                     if (currentOpacity) {
@@ -137,10 +97,10 @@ function addGridContent(gridSize, colorSelect) {
                     } else {
                         item.style.opacity = 0.1;
                     };
-            } else if (discoClicked === true) {
+            } else if (brushModeSelected === 'disco') {
                 item.style.backgroundColor = `${setRGBValue()}`;
                 item.style.border = `.1px solid ${setRGBValue()}`;
-            } else if (eraserClicked === true) {
+            } else if (brushModeSelected === 'erase') {
                 item.style.background = 'none';
                 item.style.border = '.1px solid lightgrey';
             } else {
